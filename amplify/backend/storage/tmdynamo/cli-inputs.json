@@ -1,0 +1,10 @@
+{
+  "resourceName": "tmdynamo",
+  "tableName": "Users",
+  "partitionKey": {
+    "fieldName": "userid",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}
