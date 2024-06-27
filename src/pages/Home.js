@@ -15,6 +15,14 @@ const Home = () => {
         navigate('/Access'); // Redirect to Access page on register
     };
 
+    const handleGetStarted = () => {
+        if (loggedIn) {
+            navigate('/signed-in'); // Redirect to signed-in part if logged in
+        } else {
+            navigate('/Access'); // Redirect to Access page if not logged in
+        }
+    };
+
     return (
         <div className="home-container">
             <div className="header">
@@ -33,7 +41,7 @@ const Home = () => {
                 <div className="quote">
                     <p>"Organize your life with Task Manager!"</p>
                 </div>
-                <button className="get-started-button">Get Started</button>
+                <button className="get-started-button" onClick={handleGetStarted}>Get Started</button>
                 <p>The key is not to prioritize what's on your schedule, but to schedule your priorities. --Stephen Covey</p>
             </div>
             <footer className="footer">

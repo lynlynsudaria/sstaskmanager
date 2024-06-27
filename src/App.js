@@ -1,9 +1,9 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Access from './pages/Access';
+import Newtask from './pages/Newtask';
 import './App.css';
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/About" element={<About />} />
           <Route path="/Access" element={<Access />} />
+          <Route path="/Newtask" element={<Newtask />} />
         </Routes>
       </Router>
     </div>

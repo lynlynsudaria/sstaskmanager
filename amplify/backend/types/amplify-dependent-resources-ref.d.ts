@@ -7,7 +7,7 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "auth": {
-    "amplifyreactapp4d60e314": {
+    "amplifyreactapp7f00d097": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
       "IdentityPoolId": "string",
@@ -17,14 +17,19 @@ export type AmplifyDependentResourcesAttributes = {
       "UserPoolName": "string"
     }
   },
-  "storage": {
-    "tmdynamo": {
+  "function": {
+    "S3Trigger8f401aa1": {
       "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
       "Name": "string",
-      "PartitionKeyName": "string",
-      "PartitionKeyType": "string",
-      "Region": "string",
-      "StreamArn": "string"
+      "Region": "string"
+    }
+  },
+  "storage": {
+    "s312345": {
+      "BucketName": "string",
+      "Region": "string"
     }
   }
 }

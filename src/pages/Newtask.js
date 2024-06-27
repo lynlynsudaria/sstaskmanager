@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import './Access.css';
+import Newtask from './Newtask'; // Import Newtask component
 
 const Access = () => {
     const navigate = useNavigate();
@@ -54,6 +55,7 @@ const Access = () => {
                             <div className="content">
                                 {/* Display content based on selected navigation */}
                                 {/* For New Task page */}
+                                <Newtask /> {/* Render Newtask component here */}
                             </div>
                         </div>
                     </div>
