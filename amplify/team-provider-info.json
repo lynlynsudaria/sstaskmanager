@@ -14,6 +14,12 @@
     "categories": {
       "auth": {
         "amplifyreactapp4d60e314": {}
+      },
+      "api": {
+        "amplifyreactapp": {}
+      },
+      "storage": {
+        "tmdynamo": {}
       }
     }
   }

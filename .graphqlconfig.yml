@@ -1,0 +1,17 @@
+projects:
+  amplifyreactapp:
+    schemaPath: src/graphql/schema.json
+    includes:
+      - >-
+        C:/Users/Lynlyn/OneDrive/Documents/amplifyproject/amplify-react-app/amplify/backend/api/amplifyreactapp/schema.graphql
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: javascript
+        generatedFileName: ''
+        docsFilePath: >-
+          C:/Users/Lynlyn/OneDrive/Documents/amplifyproject/amplify-react-app/amplify/backend/api/amplifyreactapp
+extensions:
+  amplify:
+    version: 3
