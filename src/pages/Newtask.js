@@ -1,68 +1,47 @@
-// Access.js
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Authenticator } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
-import './Access.css';
-import Newtask from './Newtask'; // Import Newtask component
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import { API, graphqlOperation } from 'aws-amplify';
+import './Newtask.css'; // Import your CSS file
+//import schema from '../graphql/schema.json';
 
-const Access = () => {
-    const navigate = useNavigate();
+const Newtask = () => {
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
-    const handleNavigation = (path) => {
-        navigate(path);
-    };
+  const createTask = `mutation CreateTask($input: CreateTaskInput!) {
+    createTask(input: $input) {
+      id
+      title
+      description
+    }
+  }`;
 
-    return (
-        <Authenticator>
-            {({ signOut, user }) => {
-                const userName = user.attributes ? user.attributes.name : user.username;
+  const [task, setTask] = useState({ title: '', description: '' });
 
-                const handleSignOut = async () => {
-                    await signOut();
-                    navigate('/');
-                };
+  const handleChange = (e) => {
+    setTask({ ...task, [e.target.name]: e.target.value });
+  };
 
-                return (
-                    <div className="access-container">
-                        <header className="navbar">
-                            <div className="logo">LOGO</div>
-                            <div className="auth-buttons">
-                                {user && <span className="welcome-message">{userName}</span>}
-                                <button onClick={handleSignOut}>Sign Out</button>
-                            </div>
-                        </header>
-                        <div className="main-content">
-                            <aside className="sidebar">
-                                <ul>
-                                    <li onClick={() => handleNavigation('/')}>Home</li>
-                                    <br />
-                                    <li onClick={() => handleNavigation('/Newtask')}>New Task</li>
-                                    <br />
-                                    <li>All Task</li>
-                                    <li>Today</li>
-                                    <li>Next 7 Days</li>
-                                    <br />
-                                    <li>Priority</li>
-                                    <li>Not Priority</li>
-                                    <br />
-                                    <li>Work</li>
-                                    <li>Finance</li>
-                                    <li>Billing</li>
-                                    <li>Others</li>
-                                </ul>
-                            </aside>
-                            <div className="content">
-                                {/* Display content based on selected navigation */}
-                                {/* For New Task page */}
-                                <Newtask /> {/* Render Newtask component here */}
-                            </div>
-                        </div>
-                    </div>
-                );
-            }}
-        </Authenticator>
-    );
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await API.graphql(graphqlOperation(createTask, { input: task }));
+      setTask({ title: '', description: '' });
+      navigate('/'); // Navigate back to home page after adding task
+    } catch (err) {
+      console.error('Error creating task:', err);
+    }
+  };
+
+  return (
+    <div className="container">
+      <form onSubmit={handleSubmit} className="form">
+        <input name="title" value={task.title} onChange={handleChange} placeholder="Title" required className="input" />
+        <textarea name="description" value={task.description} onChange={handleChange} placeholder="Description" className="textarea" />
+        <button type="submit" className="button">Add Task</button>
+      </form>
+    </div>
+  );
 };
 
-export default Access;
+
+export default Newtask;

@@ -26,7 +26,7 @@ const Home = () => {
     return (
         <div className="home-container">
             <div className="header">
-                <h3>LOGO</h3>
+                <h3>ETMS</h3>
                 <div className="auth-buttons">
                     {loggedIn ? (
                         <button onClick={handleLoginToggle}>Sign Out</button>

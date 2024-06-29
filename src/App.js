@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Access from './pages/Access';
 import Newtask from './pages/Newtask';
+import Attendance from './pages/Attendance';
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/Access" element={<Access />} />
           <Route path="/Newtask" element={<Newtask />} />
+          <Route path="/Attendance" element={<Attendance />} />
         </Routes>
       </Router>
     </div>

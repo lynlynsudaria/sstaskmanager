@@ -2,9 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
-import './Access.css';
+import './Attendance.css';
 
-const Access = () => {
+const Attendance = () => {
     const navigate = useNavigate();
 
     return (
@@ -44,8 +44,7 @@ const Access = () => {
                                 </ul>
                             </aside>
                             <div className="content">
-                            <button onClick={() => handleNavigation('/manage-admin')}>Manage Admin</button>
-                            <button onClick={() => handleNavigation('/manage-employee')}>Manage Employee</button>
+                            <h1>Manage Attendance</h1>
                             </div>
                         </div>
                     </div>
@@ -55,4 +54,4 @@ const Access = () => {
     );
 };
 
-export default Access;
+export default Attendance;
