@@ -1,8 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Authenticator } from '@aws-amplify/ui-react';
+import { Form } from 'react-formio';
 import '@aws-amplify/ui-react/styles.css';
 import './Attendance.css';
+import '../style/custom-styles.css';
 
 const Attendance = () => {
     const navigate = useNavigate();
@@ -34,17 +36,18 @@ const Attendance = () => {
                             <aside className="sidebar">
                                 <ul>
                                     <li onClick={() => handleNavigation('/Access')}>Administration</li>
-                                    <br></br>
+                                    <br />
                                     <li onClick={() => handleNavigation('/Newtask')}>Task Management</li>
-                                    <br></br>
+                                    <br />
                                     <li onClick={() => handleNavigation('/Attendance')}>Attendance</li>
-                                    <br></br>
+                                    <br />
                                     <li onClick={() => handleNavigation('/')}>Home</li>
-                                    <br></br>
+                                    <br />
                                 </ul>
                             </aside>
                             <div className="content">
-                            <h1>Manage Attendance</h1>
+                                <h1>Manage Attendance</h1>
+                                <Form src="https://nsxfomhvoaxgamw.form.io/attendance" />
                             </div>
                         </div>
                     </div>

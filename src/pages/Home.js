@@ -36,7 +36,7 @@ const Home = () => {
                     <button onClick={handleRegister}>Register</button>
                 </div>
             </div>
-            <div className="content">
+            <div className="contents">
                 <h1>TASK MANAGER</h1>
                 <div className="quote">
                     <p>"Organize your life with Task Manager!"</p>
